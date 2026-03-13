@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <rect width="40" height="40" rx="4" fill="#FF5733"/>
+  <path d="M10 8L20 22V32H20V22L30 8H26L20 18L14 8H10Z" fill="white"/>
+  <text x="50" y="28" font-family="Inter, sans-serif" font-weight="600" font-size="18" fill="#1c1917">Combinator</text>
+</svg>
