@@ -66,29 +66,34 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--stone-300); border-radius: 3px; }
 
 /* ── Keyframes ── */
+@keyframes iron-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 @keyframes cursor-blink {
-  0%, to { opacity: 1; }
+  0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
 @keyframes terminal-glow {
-  0%, to { box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); }
-  50% { box-shadow: 0 0 40px rgba(0, 0, 0, 0.15); }
+  0%, 100% { box-shadow: rgba(120, 113, 108, 0.05) 0px 0px 20px; }
+  50% { box-shadow: rgba(120, 113, 108, 0.12) 0px 0px 40px; }
 }
 
 @keyframes fade-in-up {
   0% { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes marquee {
   0% { transform: translate(0); }
-  to { transform: translate(-50%); }
+  100% { transform: translate(-50%); }
 }
 
 @keyframes marquee-reverse {
   0% { transform: translate(-50%); }
-  to { transform: translate(0); }
+  100% { transform: translate(0); }
 }
 
 @keyframes pulse {
@@ -96,7 +101,7 @@ body {
 }
 
 @keyframes subtle-pulse {
-  0%, to { opacity: .4; }
+  0%, 100% { opacity: .4; }
   50% { opacity: .7; }
 }
 
@@ -114,11 +119,11 @@ body {
 }
 
 .animate-marquee {
-  animation: 30s linear infinite marquee;
+  animation: 25s linear 0s infinite normal none running marquee;
 }
 
 .animate-marquee-reverse {
-  animation: 30s linear infinite marquee-reverse;
+  animation: 25s linear 0s infinite normal none running marquee-reverse;
 }
 
 .animate-pulse {
@@ -127,6 +132,91 @@ body {
 
 .animate-subtle-pulse {
   animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+/* ── ASCII Banner (hero text with shimmer) ── */
+.ascii-banner {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  white-space: pre;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(
+    90deg,
+    rgb(55, 65, 81) 0%,
+    rgb(75, 85, 99) 10%,
+    rgb(107, 114, 128) 20%,
+    rgb(156, 163, 175) 30%,
+    rgb(209, 213, 219) 40%,
+    rgb(243, 244, 246) 50%,
+    rgb(209, 213, 219) 60%,
+    rgb(156, 163, 175) 70%,
+    rgb(107, 114, 128) 80%,
+    rgb(75, 85, 99) 90%,
+    rgb(55, 65, 81) 100%
+  ) 0px 0px / 200% 100% text;
+  font-size: clamp(0.43rem, 1.75vw, 1.35rem);
+  line-height: 1.15;
+  animation: 3s ease-in-out 0s infinite normal none running iron-shimmer;
+}
+
+/* ── Terminal Window ── */
+.terminal-window {
+  background: rgb(28, 25, 23);
+  border-radius: 16px;
+  animation: 4s ease-in-out 0s infinite normal none running terminal-glow;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 80px, rgba(0, 0, 0, 0.15) 0px 8px 32px;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(68, 64, 60, 0.3);
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot:nth-child(1) { background: #FF5F56; }
+.terminal-dot:nth-child(2) { background: #FFBD2E; }
+.terminal-dot:nth-child(3) { background: #27CA40; }
+
+.terminal-body {
+  padding: 24px;
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: rgb(168, 162, 158);
+}
+
+.terminal-comment {
+  color: rgb(120, 113, 108);
+}
+
+.terminal-prompt {
+  color: rgb(214, 211, 209);
+}
+
+.terminal-accent {
+  color: rgb(168, 162, 158);
+}
+
+.terminal-success {
+  color: rgb(74, 222, 128);
+}
+
+.terminal-cursor {
+  vertical-align: text-bottom;
+  background: rgb(214, 211, 209);
+  width: 8px;
+  height: 18px;
+  margin-left: 2px;
+  animation: 1s step-end 0s infinite normal none running cursor-blink;
+  display: inline-block;
 }
 
 /* ── Scroll-triggered fade-in ── */

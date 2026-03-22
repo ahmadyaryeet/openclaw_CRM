@@ -1,39 +1,45 @@
 "use client";
 
-import { Star } from "lucide-react";
+import { Star, Github } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#e5e5e5]">
-      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5">
-            <span className="font-bold text-sm tracking-tight text-[#1a1a1a] uppercase">MAILCLAW</span>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-stone-50/80 backdrop-blur-xl">
+      <div className="max-w-6xl mx-auto px-6 h-13 flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
+          <div className="flex flex-col">
+            <span className="font-mono text-base font-semibold tracking-wider text-stone-900 leading-none">
+              MAILCLAW
+            </span>
+            <span className="text-[10px] font-medium text-stone-500 leading-none">
+              by{" "}
+              <a href="#" className="hover:text-stone-600 transition-colors">
+                OpenClaw
+              </a>
+            </span>
           </div>
-          <span className="text-xs text-[#737373]">
-            by{" "}
-            <a href="#" className="hover:text-[#1a1a1a] transition-colors duration-200">
-              OpenClaw
-            </a>
-          </span>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <a
             href="#"
-            className="text-sm text-[#737373] hover:text-[#1a1a1a] transition-colors duration-200"
+            className="flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-500 transition-colors"
           >
-            Discord
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            <span className="hidden sm:inline">Discord</span>
           </a>
           <a
             href="#"
-            className="text-sm text-[#737373] hover:text-[#1a1a1a] transition-colors duration-200"
+            className="flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-500 transition-colors"
           >
-            GitHub
+            <Github className="w-4 h-4" />
+            <span className="hidden sm:inline">GitHub</span>
           </a>
-          <button className="flex items-center gap-1.5 px-3 py-1.5 text-sm border border-[#e5e5e5] rounded-lg hover:bg-[#fafafa] hover:border-[#d4d4d4] transition-all duration-200">
-            <Star size={14} className="text-[#737373]" />
-            <span className="text-[#525252]">Star</span>
+          <button className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-900 text-white text-xs font-medium rounded-full hover:bg-stone-800 transition-colors">
+            <Star className="w-3 h-3" />
+            Star
           </button>
         </div>
       </div>

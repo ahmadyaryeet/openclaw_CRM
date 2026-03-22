@@ -1,31 +1,36 @@
 "use client";
 
+import { Copy } from "lucide-react";
 import { useScrollFade } from "@/hooks/useScrollFade";
+
+const ASCII_BANNER = `███╗   ███╗ █████╗ ██╗██╗      ██████╗██╗      █████╗ ██╗    ██╗
+████╗ ████║██╔══██╗██║██║     ██╔════╝██║     ██╔══██╗██║    ██║
+██╔████╔██║███████║██║██║     ██║     ██║     ███████║██║ █╗ ██║
+██║╚██╔╝██║██╔══██║██║██║     ██║     ██║     ██╔══██║██║███╗██║
+██║ ╚═╝ ██║██║  ██║██║███████╗╚██████╗███████╗██║  ██║╚███╔███╔╝
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚══════╝ ╚═════╝╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝`;
 
 export default function HeroSection() {
   const ref = useScrollFade();
 
   return (
-    <section className="pt-20 pb-16 px-6 relative overflow-hidden" ref={ref}>
-      <div className="max-w-5xl mx-auto text-center relative">
-        {/* Large faded background text */}
-        <div
-          className="scroll-fade select-none pointer-events-none text-[8rem] sm:text-[10rem] md:text-[14rem] font-bold tracking-tighter leading-none text-[#1a1a1a] opacity-[0.06] uppercase"
-          aria-hidden="true"
-          style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}
-        >
-          MAILCLAW
-        </div>
+    <section
+      className="relative pt-24 pb-0 sm:pt-32 sm:pb-0 flex flex-col items-center overflow-hidden bg-stone-50"
+      ref={ref}
+    >
+      {/* Subtle background */}
+      <div className="absolute inset-0 pointer-events-none" />
+
+      <div className="relative z-10 flex flex-col items-center px-4">
+        {/* ASCII Banner with iron shimmer */}
+        <pre className="ascii-banner select-none scroll-fade">{ASCII_BANNER}</pre>
 
         {/* Tagline */}
-        <p
-          className="scroll-fade text-xl sm:text-2xl md:text-3xl text-[#1a1a1a] mb-10 max-w-2xl mx-auto -mt-12 sm:-mt-16 md:-mt-20 leading-relaxed"
-          style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
-        >
+        <p className="scroll-fade mt-5 text-center font-serif text-xl sm:text-2xl lg:text-3xl text-stone-600 italic">
           AI Email Automation, hosted locally on your Mac. Built on{" "}
           <a
             href="#"
-            className="underline underline-offset-4 decoration-[#d4d4d4] hover:decoration-[#1a1a1a] transition-colors duration-200"
+            className="underline underline-offset-2 hover:text-stone-900 transition-colors"
           >
             OpenClaw
           </a>
@@ -33,24 +38,20 @@ export default function HeroSection() {
         </p>
 
         {/* Terminal CTA */}
-        <div className="scroll-fade inline-flex items-center gap-3 bg-[#1a1a1a] text-[#d4d4d4] rounded-2xl px-7 py-4 font-mono text-sm animate-terminal-glow">
-          <span className="text-[#737373]">$</span>
-          <span className="text-white font-medium">npx mailclaw</span>
-          <span className="animate-cursor-blink text-[#737373]">|</span>
+        <div className="scroll-fade mt-7">
           <button
             onClick={() => navigator.clipboard.writeText("npx mailclaw")}
-            className="ml-2 text-[#737373] hover:text-white transition-colors duration-200"
-            title="Copy command"
+            className="bg-stone-800/90 border border-stone-800 rounded-[12px] px-6 py-3.5 font-mono text-base ring-2 ring-stone-200 ring-offset-4 ring-offset-stone-50 text-stone-50 flex items-center justify-between gap-3.5 cursor-pointer transition-all duration-300 hover:border-stone-700 group"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-            </svg>
+            <span className="text-stone-500">$</span>
+            <span className="text-stone-50">npx mailclaw</span>
+            <Copy className="w-4 h-4 text-stone-500 group-hover:text-stone-300 transition-colors" />
           </button>
         </div>
 
-        <p className="scroll-fade text-xs text-[#737373] mt-4">
-          opens at <code className="text-[#525252] bg-[#f5f5f5] px-1.5 py-0.5 rounded font-mono">localhost:3100</code>
+        {/* Localhost note */}
+        <p className="scroll-fade mt-2.5 text-[11px] text-stone-400 font-mono">
+          opens at <span className="text-stone-500">localhost:3100</span>
         </p>
       </div>
     </section>

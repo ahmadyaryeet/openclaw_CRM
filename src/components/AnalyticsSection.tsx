@@ -3,93 +3,145 @@
 import { useScrollFade } from "@/hooks/useScrollFade";
 
 const weeklyData = [
-  { week: "Mon", sent: 24, opened: 18 },
-  { week: "Tue", sent: 52, opened: 38 },
-  { week: "Wed", sent: 78, opened: 56 },
-  { week: "Thu", sent: 96, opened: 71 },
-  { week: "Fri", sent: 115, opened: 84 },
-  { week: "Sat", sent: 42, opened: 31 },
-  { week: "Sun", sent: 28, opened: 19 },
+  { week: "W1", linkedin: 18, email: 12 },
+  { week: "W2", linkedin: 32, email: 24 },
+  { week: "W3", linkedin: 48, email: 38 },
+  { week: "W4", linkedin: 72, email: 56 },
+  { week: "W5", linkedin: 96, email: 78 },
+  { week: "W6", linkedin: 128, email: 94 },
 ];
 
-const metrics = [
-  { label: "Open Rate", value: "71%", change: "+7%" },
-  { label: "Reply Rate", value: "30%", change: "+4%" },
-  { label: "Bounce Rate", value: "2.1%", change: "-0.8%" },
-  { label: "Avg. Response", value: "4.2h", change: "-1.1h" },
+const pipelineBreakdown = [
+  { label: "New", value: 89, color: "bg-stone-300" },
+  { label: "Contacted", value: 67, color: "bg-blue-400" },
+  { label: "Qualified", value: 31, color: "bg-violet-400" },
+  { label: "Converted", value: 13, color: "bg-green-500" },
+];
+
+const funnelData = [
+  { label: "Total Leads", value: 200, width: "100%" },
+  { label: "Contacted", value: 134, width: "67%" },
+  { label: "Replied", value: 67, width: "34%" },
+  { label: "Qualified", value: 31, width: "16%" },
+  { label: "Converted", value: 13, width: "7%" },
 ];
 
 export default function AnalyticsSection() {
-  const maxVal = 115;
+  const maxVal = 128;
   const ref = useScrollFade();
 
   return (
-    <section className="py-28 px-6" ref={ref}>
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="scroll-fade section-label mb-4">ANALYTICS</p>
-          <h2
-            className="scroll-fade text-3xl sm:text-4xl text-[#1a1a1a]"
-            style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
-          >
+    <section className="relative py-20 sm:py-28 bg-white overflow-hidden" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-12 scroll-fade">
+          <p className="text-sm font-mono text-stone-400 tracking-widest uppercase mb-3">
+            Analytics
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 italic mb-4">
             See everything at a glance
           </h2>
+          <p className="text-stone-500 text-lg max-w-xl">
+            Ask &ldquo;show me pipeline analytics&rdquo; and get interactive charts generated from your live data.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-4 mb-6 stagger-children">
-          {metrics.map((m) => (
-            <div key={m.label} className="scroll-fade section-card p-5">
-              <p className="text-xs text-[#737373] mb-1">{m.label}</p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-semibold text-[#1a1a1a]">{m.value}</span>
-                <span className={`text-xs font-medium ${
-                  m.change.startsWith("+") ? "text-green-600" :
-                  m.change.startsWith("-") && m.label === "Bounce Rate" ? "text-green-600" :
-                  m.change.startsWith("-") && m.label === "Avg. Response" ? "text-green-600" :
-                  "text-red-500"
-                }`}>
-                  {m.change}
-                </span>
+        <div className="scroll-fade grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Outreach Activity Chart */}
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold text-stone-800">Outreach Activity</h3>
+              <span className="text-[10px] text-stone-400 font-mono bg-stone-50 px-2 py-0.5 rounded">Live</span>
+            </div>
+            <div className="flex items-center gap-3 mb-3 text-[10px]">
+              <div className="flex items-center gap-1">
+                <div className="w-2 h-2 rounded-full bg-blue-500" />
+                <span className="text-stone-500">LinkedIn</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <div className="w-2 h-2 rounded-full bg-violet-400" />
+                <span className="text-stone-500">Email</span>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Chart */}
-        <div className="scroll-fade section-card p-6">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h3 className="font-semibold text-sm text-[#1a1a1a]">Email Activity</h3>
-              <p className="text-xs text-[#737373] mt-0.5">Last 7 days</p>
+            {/* Bar Chart */}
+            <div className="h-[190px] flex items-end gap-2">
+              {weeklyData.map((d) => (
+                <div key={d.week} className="flex-1 flex flex-col items-center gap-1">
+                  <div className="w-full flex gap-0.5 items-end justify-center h-[160px]">
+                    <div
+                      className="flex-1 bg-blue-500 rounded-t-md progress-animate"
+                      style={{ height: `${(d.linkedin / maxVal) * 100}%` }}
+                    />
+                    <div
+                      className="flex-1 bg-violet-400 rounded-t-md progress-animate"
+                      style={{ height: `${(d.email / maxVal) * 100}%` }}
+                    />
+                  </div>
+                  <span className="text-[9px] text-stone-400">{d.week}</span>
+                </div>
+              ))}
             </div>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1.5">
-                <div className="w-3 h-1.5 rounded bg-[#1a1a1a]" />
-                <span className="text-xs text-[#737373]">Sent</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-3 h-1.5 rounded bg-[#a3a3a3]" />
-                <span className="text-xs text-[#737373]">Opened</span>
-              </div>
+            <div className="flex justify-between text-[8px] text-stone-400 mt-1 font-mono">
+              <span>0</span>
+              <span>64</span>
+              <span>128</span>
             </div>
           </div>
 
-          <div className="flex items-end gap-3 h-48">
-            {weeklyData.map((d) => (
-              <div key={d.week} className="flex-1 flex flex-col items-center gap-1.5">
-                <div className="w-full flex gap-1 items-end justify-center h-40">
-                  <div
-                    className="w-4 bg-[#1a1a1a] rounded-t progress-animate"
-                    style={{ height: `${(d.sent / maxVal) * 100}%` }}
-                  />
-                  <div
-                    className="w-4 bg-[#d4d4d4] rounded-t progress-animate"
-                    style={{ height: `${(d.opened / maxVal) * 100}%` }}
-                  />
+          {/* Pipeline Breakdown */}
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-sm font-semibold text-stone-800">Pipeline Breakdown</h3>
+              <span className="text-[10px] text-stone-400 font-mono">200 leads</span>
+            </div>
+
+            {/* Donut-style display */}
+            <div className="flex items-center justify-center mb-5">
+              <div className="relative w-28 h-28">
+                <div className="absolute inset-0 rounded-full border-8 border-stone-100" />
+                <div className="absolute inset-0 flex items-center justify-center flex-col">
+                  <span className="text-2xl font-semibold text-stone-900">200</span>
+                  <span className="text-[10px] text-stone-400">total</span>
                 </div>
-                <span className="text-[10px] text-[#737373]">{d.week}</span>
               </div>
-            ))}
+            </div>
+
+            <div className="space-y-2.5">
+              {pipelineBreakdown.map((item) => (
+                <div key={item.label} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
+                    <span className="text-[11px] text-stone-600">{item.label}</span>
+                  </div>
+                  <span className="text-[11px] font-semibold text-stone-800 tabular-nums">{item.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Conversion Funnel */}
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-sm font-semibold text-stone-800">Conversion Funnel</h3>
+              <span className="text-[10px] text-stone-400 font-mono">All time</span>
+            </div>
+
+            <div className="space-y-3">
+              {funnelData.map((item) => (
+                <div key={item.label}>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[10px] text-stone-500">{item.label}</span>
+                    <span className="text-[10px] font-semibold text-stone-700 tabular-nums">{item.value}</span>
+                  </div>
+                  <div className="w-full bg-stone-100 rounded-full h-2.5">
+                    <div
+                      className="h-2.5 bg-stone-900 rounded-full progress-animate"
+                      style={{ width: item.width }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
