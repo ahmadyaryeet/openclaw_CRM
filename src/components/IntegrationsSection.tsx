@@ -2,7 +2,7 @@
 
 import { useScrollFade } from "@/hooks/useScrollFade";
 
-/* Minimal inline SVG icons for each integration – matches stone theme */
+/* Minimal inline SVG icons for each integration */
 const GmailIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24">
     <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
@@ -17,17 +17,12 @@ const OutlookIcon = () => (
   </svg>
 );
 
-const SendGridIcon = () => (
+const SlackIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M8 0h8v8h8v8h-8v8H8v-8H0V8h8V0z" fill="#1A82E2" fillRule="evenodd"/>
-  </svg>
-);
-
-const MailgunIcon = () => (
-  <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#F06B54"/>
-    <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="#F06B54"/>
-    <circle cx="12" cy="12" r="2" fill="#F06B54"/>
+    <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z" fill="#E01E5A"/>
+    <path d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z" fill="#36C5F0"/>
+    <path d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.27 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.163 0a2.528 2.528 0 0 1 2.523 2.522v6.312z" fill="#2EB67D"/>
+    <path d="M15.163 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.163 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.27a2.527 2.527 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.315A2.528 2.528 0 0 1 24 15.163a2.528 2.528 0 0 1-2.522 2.523h-6.315z" fill="#ECB22E"/>
   </svg>
 );
 
@@ -43,18 +38,15 @@ const SalesforceIcon = () => (
   </svg>
 );
 
-const NotionIcon = () => (
+const SendGridIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L2.58 2.559c-.467.047-.56.28-.374.466l2.253 1.183zm.793 3.172v13.851c0 .746.373 1.026 1.213.98l14.523-.839c.84-.047.933-.56.933-1.166V6.354c0-.606-.233-.933-.746-.886l-15.177.886c-.56.047-.746.327-.746.886v.14zm14.337.42c.093.42 0 .84-.42.886l-.7.14v10.264c-.606.327-1.166.514-1.633.514-.746 0-.933-.234-1.493-.933l-4.571-7.185v6.952l1.446.327s0 .84-1.166.84l-3.218.187c-.093-.187 0-.653.327-.746l.84-.233V8.86l-1.166-.093c-.093-.42.14-1.026.793-1.073l3.451-.233 4.758 7.278v-6.44l-1.213-.14c-.093-.513.28-.886.746-.933l3.225-.187z" fill="#1c1917"/>
+    <path d="M8 0h8v8h8v8h-8v8H8v-8H0V8h8V0z" fill="#1A82E2" fillRule="evenodd"/>
   </svg>
 );
 
-const SlackIcon = () => (
+const NotionIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z" fill="#E01E5A"/>
-    <path d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z" fill="#36C5F0"/>
-    <path d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.27 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.163 0a2.528 2.528 0 0 1 2.523 2.522v6.312z" fill="#2EB67D"/>
-    <path d="M15.163 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.163 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.27a2.527 2.527 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.315A2.528 2.528 0 0 1 24 15.163a2.528 2.528 0 0 1-2.522 2.523h-6.315z" fill="#ECB22E"/>
+    <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L2.58 2.559c-.467.047-.56.28-.374.466l2.253 1.183zm.793 3.172v13.851c0 .746.373 1.026 1.213.98l14.523-.839c.84-.047.933-.56.933-1.166V6.354c0-.606-.233-.933-.746-.886l-15.177.886c-.56.047-.746.327-.746.886v.14zm14.337.42c.093.42 0 .84-.42.886l-.7.14v10.264c-.606.327-1.166.514-1.633.514-.746 0-.933-.234-1.493-.933l-4.571-7.185v6.952l1.446.327s0 .84-1.166.84l-3.218.187c-.093-.187 0-.653.327-.746l.84-.233V8.86l-1.166-.093c-.093-.42.14-1.026.793-1.073l3.451-.233 4.758 7.278v-6.44l-1.213-.14c-.093-.513.28-.886.746-.933l3.225-.187z" fill="#1c1917"/>
   </svg>
 );
 
@@ -78,103 +70,48 @@ const ZapierIcon = () => (
   </svg>
 );
 
-const WebhooksIcon = () => (
-  <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-2.17l-3.83 2.21-1-1.73L10 12.59 6.17 10.38l1-1.73L11 10.87V5.5h2v5.37l3.83-2.22 1 1.73L14 12.59l3.83 2.22-1 1.73L13 14.33V16.5h-2z" fill="#44403c"/>
-  </svg>
-);
-
-const PostHogIcon = () => (
-  <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M12 0L0 12h4l8-8 8 8h4L12 0z" fill="#1d4aff"/>
-    <path d="M12 8L4 16h4l4-4 4 4h4l-8-8z" fill="#1d4aff"/>
-    <path d="M12 16l-4 4h8l-4-4z" fill="#1d4aff"/>
-  </svg>
-);
-
-const StripeIcon = () => (
-  <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.918 3.757 7.068c0 4.072 2.484 5.867 6.517 7.37 2.58 .964 3.477 1.655 3.477 2.718 0 .952-.808 1.545-2.263 1.545-1.907 0-4.89-.952-6.756-2.195l-.89 5.555c1.68.95 4.756 1.94 7.954 1.94 2.614 0 4.764-.653 6.283-1.88 1.662-1.34 2.498-3.248 2.498-5.67 0-4.153-2.527-5.918-6.601-7.3z" fill="#635BFF"/>
-  </svg>
-);
-
-const CalcomIcon = () => (
-  <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#292524"/>
-    <path d="M11 7h2v5.41l3.29 3.29-1.41 1.41L11 13.41V7z" fill="#292524"/>
-  </svg>
-);
-
-const GitHubIcon = () => (
-  <svg viewBox="0 0 24 24" width="24" height="24">
-    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#1c1917"/>
-  </svg>
-);
-
 const integrations = [
   { name: "Gmail", icon: GmailIcon },
   { name: "Outlook", icon: OutlookIcon },
-  { name: "SendGrid", icon: SendGridIcon },
-  { name: "Mailgun", icon: MailgunIcon },
+  { name: "Slack", icon: SlackIcon },
   { name: "HubSpot", icon: HubSpotIcon },
   { name: "Salesforce", icon: SalesforceIcon },
+  { name: "SendGrid", icon: SendGridIcon },
   { name: "Notion", icon: NotionIcon },
-  { name: "Slack", icon: SlackIcon },
   { name: "LinkedIn", icon: LinkedInIcon },
-  { name: "Google Sheets", icon: GoogleSheetsIcon },
+  { name: "Sheets", icon: GoogleSheetsIcon },
   { name: "Zapier", icon: ZapierIcon },
-  { name: "Webhooks", icon: WebhooksIcon },
-  { name: "PostHog", icon: PostHogIcon },
-  { name: "Stripe", icon: StripeIcon },
-  { name: "Cal.com", icon: CalcomIcon },
-  { name: "GitHub", icon: GitHubIcon },
 ];
-
-const topRow = integrations.slice(0, 8);
-const bottomRow = integrations.slice(8, 16);
 
 export default function IntegrationsSection() {
   const ref = useScrollFade();
 
   return (
-    <section className="py-24 px-6" ref={ref}>
+    <section className="py-28 px-6" ref={ref}>
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="scroll-fade text-3xl font-semibold tracking-tight text-stone-900 mb-3">
-          Connect your email stack
+        <p className="scroll-fade section-label mb-4">INTEGRATIONS</p>
+        <h2
+          className="scroll-fade text-3xl sm:text-4xl text-[#1a1a1a] mb-14"
+          style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
+        >
+          800+ one-click integrations
         </h2>
-        <p className="scroll-fade text-stone-500 mb-12 max-w-lg mx-auto">
-          Gmail, Outlook, SendGrid, CRMs — bring all your email data into one workspace.
+
+        {/* Integration grid */}
+        <div className="scroll-fade flex flex-wrap justify-center gap-5 mb-8">
+          {integrations.map((int) => (
+            <div key={int.name} className="flex flex-col items-center gap-2">
+              <div className="integration-icon">
+                <int.icon />
+              </div>
+              <span className="text-[10px] text-[#737373]">{int.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <p className="scroll-fade text-sm text-[#a3a3a3] animate-subtle-pulse">
+          +790 more integrations via Zapier, Webhooks, and API
         </p>
-
-        {/* Marquee Row 1 */}
-        <div className="scroll-fade marquee-container mb-4">
-          <div className="marquee-track animate-marquee">
-            {[...topRow, ...topRow].map((int, i) => (
-              <div key={`${int.name}-${i}`} className="flex flex-col items-center gap-2 px-3">
-                <div className="integration-icon">
-                  <int.icon />
-                </div>
-                <span className="text-[10px] text-stone-400 whitespace-nowrap">{int.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Marquee Row 2 (reverse) */}
-        <div className="scroll-fade marquee-container mb-6">
-          <div className="marquee-track animate-marquee-reverse">
-            {[...bottomRow, ...bottomRow].map((int, i) => (
-              <div key={`${int.name}-${i}`} className="flex flex-col items-center gap-2 px-3">
-                <div className="integration-icon">
-                  <int.icon />
-                </div>
-                <span className="text-[10px] text-stone-400 whitespace-nowrap">{int.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <p className="scroll-fade text-sm text-stone-400 mt-4 animate-subtle-pulse">+50 more integrations</p>
       </div>
     </section>
   );

@@ -5,7 +5,8 @@ import { useScrollFade } from "@/hooks/useScrollFade";
 
 const columns = [
   {
-    title: "New Lead",
+    title: "New",
+    color: "bg-[#e5e5e5]",
     count: 3,
     cards: [
       { name: "Veer Shah", company: "Cumulus Labs", note: "Enriched from YC directory", time: "2h ago" },
@@ -14,26 +15,36 @@ const columns = [
     ],
   },
   {
-    title: "Email Sent",
+    title: "Contacted",
+    color: "bg-blue-400",
     count: 2,
     cards: [
-      { name: "Leo Gierhake", company: "Laurence", note: "Step 1 delivered · opened", time: "1d ago" },
+      { name: "Leo Gierhake", company: "Laurence", note: "Step 1 delivered, opened", time: "1d ago" },
       { name: "Berke Argin", company: "Compresr", note: "Step 2 follow-up sent", time: "2d ago" },
     ],
   },
   {
     title: "Replied",
+    color: "bg-yellow-400",
     count: 1,
     cards: [
       { name: "Vincent Chen", company: "Panta", note: "\"Interested — send me a cal link\"", time: "4h ago" },
     ],
   },
   {
-    title: "Booked",
-    count: 2,
+    title: "Negotiating",
+    color: "bg-orange-400",
+    count: 1,
     cards: [
-      { name: "Arne Strickmann", company: "Emdash", note: "Demo scheduled Feb 18", time: "1d ago" },
-      { name: "Vincent Jeltsch", company: "sitefire", note: "Intro call Wednesday", time: "3d ago" },
+      { name: "Arne Strickmann", company: "Emdash", note: "Pricing discussion ongoing", time: "1d ago" },
+    ],
+  },
+  {
+    title: "Closed",
+    color: "bg-green-500",
+    count: 1,
+    cards: [
+      { name: "Vincent Jeltsch", company: "sitefire", note: "Signed. Onboarding next week", time: "3d ago" },
     ],
   },
 ];
@@ -42,58 +53,59 @@ export default function PipelineSection() {
   const ref = useScrollFade();
 
   return (
-    <section className="py-24 px-6" ref={ref}>
+    <section className="py-28 px-6 bg-[#fafafa]" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="scroll-fade text-3xl font-semibold tracking-tight text-stone-900 mb-3">
+          <p className="scroll-fade section-label mb-4">PIPELINE</p>
+          <h2
+            className="scroll-fade text-3xl sm:text-4xl text-[#1a1a1a]"
+            style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
+          >
             Track every email thread
           </h2>
-          <p className="scroll-fade text-stone-500 max-w-lg mx-auto">
-            Kanban boards auto-update as leads reply. MailClaw moves cards through
-            your pipeline automatically.
-          </p>
         </div>
 
-        <div className="scroll-fade section-card shadow-lg shadow-stone-200/50">
+        <div className="scroll-fade section-card shadow-lg shadow-black/5">
           {/* Window Chrome */}
-          <div className="flex items-center gap-2 px-4 py-3 bg-stone-50 border-b border-stone-100">
-            <div className="w-3 h-3 rounded-full bg-red-400" />
-            <div className="w-3 h-3 rounded-full bg-yellow-400" />
-            <div className="w-3 h-3 rounded-full bg-green-400" />
-            <span className="ml-3 text-xs text-stone-400 font-mono">Email Pipeline — YC W26 Outreach</span>
+          <div className="window-chrome">
+            <div className="window-dot red" />
+            <div className="window-dot yellow" />
+            <div className="window-dot green" />
+            <span className="ml-3 text-xs text-[#737373] font-mono">Email Pipeline — YC W26 Outreach</span>
           </div>
 
           {/* Kanban Board */}
           <div className="p-5 overflow-x-auto">
-            <div className="flex gap-4 min-w-[800px]">
+            <div className="flex gap-4 min-w-[900px]">
               {columns.map((col) => (
-                <div key={col.title} className="flex-1 min-w-[200px]">
+                <div key={col.title} className="flex-1 min-w-[170px]">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-medium text-stone-700">{col.title}</h4>
-                      <span className="text-xs text-stone-400 bg-stone-100 rounded-full px-2 py-0.5">
+                      <div className={`w-2 h-2 rounded-full ${col.color}`} />
+                      <h4 className="text-xs font-medium text-[#525252]">{col.title}</h4>
+                      <span className="text-[10px] text-[#a3a3a3] bg-[#f5f5f5] rounded-full px-1.5 py-0.5">
                         {col.count}
                       </span>
                     </div>
-                    <button className="text-stone-400 hover:text-stone-600 transition-colors duration-200">
-                      <Plus size={14} />
+                    <button className="text-[#a3a3a3] hover:text-[#525252] transition-colors duration-200">
+                      <Plus size={13} />
                     </button>
                   </div>
 
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     {col.cards.map((card) => (
-                      <div key={card.name} className="kanban-card cursor-grab">
+                      <div key={card.name} className="kanban-card">
                         <div className="flex items-center gap-2 mb-1.5">
-                          <div className="w-6 h-6 rounded-full bg-stone-100 flex items-center justify-center text-xs font-medium text-stone-600">
+                          <div className="w-6 h-6 rounded-full bg-[#f5f5f5] flex items-center justify-center text-[10px] font-medium text-[#525252]">
                             {card.name.charAt(0)}
                           </div>
                           <div>
-                            <p className="text-sm font-medium text-stone-900">{card.name}</p>
-                            <p className="text-[10px] text-stone-400">{card.company}</p>
+                            <p className="text-xs font-medium text-[#1a1a1a]">{card.name}</p>
+                            <p className="text-[9px] text-[#a3a3a3]">{card.company}</p>
                           </div>
                         </div>
-                        <p className="text-xs text-stone-500 mt-1">{card.note}</p>
-                        <p className="text-[10px] text-stone-300 mt-1.5">{card.time}</p>
+                        <p className="text-[10px] text-[#737373] mt-1">{card.note}</p>
+                        <p className="text-[9px] text-[#d4d4d4] mt-1.5">{card.time}</p>
                       </div>
                     ))}
                   </div>

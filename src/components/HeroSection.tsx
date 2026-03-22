@@ -1,43 +1,45 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollFade } from "@/hooks/useScrollFade";
 
 export default function HeroSection() {
   const ref = useScrollFade();
 
   return (
-    <section className="pt-24 pb-16 px-6" ref={ref}>
-      <div className="max-w-5xl mx-auto text-center">
-        <div className="scroll-fade flex items-center justify-center gap-4 mb-6">
-          <Image
-            src="/mailclaw-logo.svg"
-            alt="MailClaw"
-            width={56}
-            height={56}
-            className="rounded-xl"
-            priority
-          />
-          <h1 className="font-mono text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-stone-900">
-            <span className="shimmer-text">MailClaw</span>
-          </h1>
+    <section className="pt-20 pb-16 px-6 relative overflow-hidden" ref={ref}>
+      <div className="max-w-5xl mx-auto text-center relative">
+        {/* Large faded background text */}
+        <div
+          className="scroll-fade select-none pointer-events-none text-[8rem] sm:text-[10rem] md:text-[14rem] font-bold tracking-tighter leading-none text-[#1a1a1a] opacity-[0.06] uppercase"
+          aria-hidden="true"
+          style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}
+        >
+          MAILCLAW
         </div>
 
-        <p className="scroll-fade text-lg text-stone-500 mb-8 max-w-xl mx-auto">
+        {/* Tagline */}
+        <p
+          className="scroll-fade text-xl sm:text-2xl md:text-3xl text-[#1a1a1a] mb-10 max-w-2xl mx-auto -mt-12 sm:-mt-16 md:-mt-20 leading-relaxed"
+          style={{ fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}
+        >
           AI Email Automation, hosted locally on your Mac. Built on{" "}
-          <a href="#" className="text-stone-700 hover:text-stone-900 underline underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition-colors duration-200">
+          <a
+            href="#"
+            className="underline underline-offset-4 decoration-[#d4d4d4] hover:decoration-[#1a1a1a] transition-colors duration-200"
+          >
             OpenClaw
           </a>
           .
         </p>
 
-        <div className="scroll-fade inline-flex items-center gap-3 bg-stone-950 text-stone-300 rounded-xl px-6 py-3.5 font-mono text-sm animate-terminal-glow">
-          <span className="text-stone-500">$</span>
-          <span className="text-white">npx mailclaw</span>
-          <span className="animate-cursor-blink text-stone-400">▎</span>
+        {/* Terminal CTA */}
+        <div className="scroll-fade inline-flex items-center gap-3 bg-[#1a1a1a] text-[#d4d4d4] rounded-2xl px-7 py-4 font-mono text-sm animate-terminal-glow">
+          <span className="text-[#737373]">$</span>
+          <span className="text-white font-medium">npx mailclaw</span>
+          <span className="animate-cursor-blink text-[#737373]">|</span>
           <button
             onClick={() => navigator.clipboard.writeText("npx mailclaw")}
-            className="ml-2 text-stone-500 hover:text-stone-300 transition-colors duration-200"
+            className="ml-2 text-[#737373] hover:text-white transition-colors duration-200"
             title="Copy command"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -47,8 +49,8 @@ export default function HeroSection() {
           </button>
         </div>
 
-        <p className="scroll-fade text-xs text-stone-400 mt-3">
-          opens at <code className="text-stone-500 bg-stone-100 px-1 py-0.5 rounded">localhost:3100</code>
+        <p className="scroll-fade text-xs text-[#737373] mt-4">
+          opens at <code className="text-[#525252] bg-[#f5f5f5] px-1.5 py-0.5 rounded font-mono">localhost:3100</code>
         </p>
       </div>
     </section>
