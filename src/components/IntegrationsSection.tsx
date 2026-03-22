@@ -3,22 +3,22 @@
 import { useScrollFade } from "@/hooks/useScrollFade";
 
 const integrations = [
-  { name: "Google Drive", icon: "https://cdn.simpleicons.org/googledrive" },
-  { name: "Notion", icon: "https://cdn.simpleicons.org/notion/000" },
-  { name: "Salesforce", icon: "https://cdn.simpleicons.org/salesforce" },
-  { name: "HubSpot", icon: "https://cdn.simpleicons.org/hubspot" },
-  { name: "Gmail", icon: "https://cdn.simpleicons.org/gmail" },
-  { name: "Calendar", icon: "https://cdn.simpleicons.org/googlecalendar" },
-  { name: "Obsidian", icon: "https://cdn.simpleicons.org/obsidian/7C3AED" },
-  { name: "Slack", icon: "https://cdn.simpleicons.org/slack" },
-  { name: "LinkedIn", icon: "https://cdn.simpleicons.org/linkedin" },
-  { name: "Asana", icon: "https://cdn.simpleicons.org/asana" },
-  { name: "Monday", icon: "https://cdn.simpleicons.org/mondaydotcom" },
-  { name: "ClickUp", icon: "https://cdn.simpleicons.org/clickup" },
-  { name: "PostHog", icon: "https://cdn.simpleicons.org/posthog" },
-  { name: "Sheets", icon: "https://cdn.simpleicons.org/googlesheets" },
-  { name: "Apple Notes", icon: "https://cdn.simpleicons.org/apple/000" },
-  { name: "GitHub", icon: "https://cdn.simpleicons.org/github/000" },
+  { name: "Google Drive", icon: "/logos/apps/google-drive.svg" },
+  { name: "Notion", icon: "/logos/apps/notion.svg" },
+  { name: "Salesforce", icon: "/logos/apps/salesforce.svg" },
+  { name: "HubSpot", icon: "/logos/apps/hubspot.svg" },
+  { name: "Gmail", icon: "/logos/apps/gmail.svg" },
+  { name: "Calendar", icon: "/logos/apps/google-calendar.svg" },
+  { name: "Obsidian", icon: "/logos/apps/obsidian.svg" },
+  { name: "Slack", icon: "/logos/apps/slack.svg" },
+  { name: "LinkedIn", icon: "/logos/apps/linkedin.svg" },
+  { name: "Asana", icon: "/logos/apps/asana.svg" },
+  { name: "Monday", icon: "/logos/apps/monday.svg" },
+  { name: "ClickUp", icon: "/logos/apps/clickup.svg" },
+  { name: "PostHog", icon: "/logos/apps/posthog.svg" },
+  { name: "Sheets", icon: "/logos/apps/google-sheets.svg" },
+  { name: "Apple Notes", icon: "/logos/apps/apple.svg" },
+  { name: "GitHub", icon: "/logos/apps/github.svg" },
 ];
 
 /* Inline SVG fallback icons for each integration */

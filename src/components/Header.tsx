@@ -6,19 +6,21 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-stone-50/80 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-6 h-13 flex items-center justify-between">
-        <div className="flex items-center gap-1.5">
+        <a href="/" className="flex items-center gap-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/mailclaw-logo.svg" alt="MailClaw" className="w-7 h-7 rounded-md" />
           <div className="flex flex-col">
             <span className="font-mono text-base font-semibold tracking-wider text-stone-900 leading-none">
               MAILCLAW
             </span>
             <span className="text-[10px] font-medium text-stone-500 leading-none">
               by{" "}
-              <a href="#" className="hover:text-stone-600 transition-colors">
+              <span className="hover:text-stone-600 transition-colors">
                 OpenClaw
-              </a>
+              </span>
             </span>
           </div>
-        </div>
+        </a>
 
         <div className="flex items-center gap-4">
           <a
